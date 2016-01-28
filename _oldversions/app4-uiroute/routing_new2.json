@@ -1,0 +1,31 @@
+{
+  "welcome": {
+    "templateUrl": "components/welcome/welcome.html",
+    "controller": "WelcomeController as welcome",
+    "abstract": true,
+    "items": [
+      {
+        "layout": "vbox",
+        "cls": "myClass",
+        "items": [
+          {
+            "type": "componentA",
+            "flex": 1
+          },
+          {
+            "type": "componentB",
+            "flex": 2
+          }
+        ]
+      },
+      {
+        "type": "componentC"
+      },
+      {
+        "type": "componentD",
+        "inherit": "componentB",
+        "flex": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "welcome": {
+    "templateUrl": "components/welcome/welcome.html",
+    "controller": "WelcomeController as welcome",
+    "abstract": true,
+  },
+  "welcome.components": {
+    "url": "/welcome",
+    "views":[
+      "componentA",
+      "componentB"
+    ]
+  }
+}
+

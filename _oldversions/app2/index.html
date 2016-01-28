@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>AngularJS Plunker</title>
+    <!--<script>-->
+        <!--document.write('<base href="' + document.location + '" />');-->
+    <!--</script>-->
+
+    <!-- Bootstrap 3 -->
+    <!--<script data-require="jquery@2.1.1" data-semver="2.1.1" src="../app/bower_components/jquery/dist/jquery.js"></script>-->
+    <link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <!--   <link data-require="bootstrap-css@~3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <script data-require="bootstrap@*" data-semver="3.2.0" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+     -->
+    <!-- Angular -->
+    <!--<script data-require="angular.js@~1.4.0-beta.5" data-semver="1.4.0-beta.5" src="https://code.angularjs.org/1.4.0-beta.5/angular.js"></script>-->
+    <!--<script src="router.es5.js"></script>-->
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-new-router/dist/router.es5.js"></script>
+
+
+    <!-- App -->
+    <!-- order is irrelevant after app.js -->
+    <script src="app.js"></script>
+    <script src="AppController.js"></script>
+    <script src="HeaderController.js"></script>
+
+    <!-- home -->
+    <script src="components/home/home.js"></script>
+    <script src="components/home/HomeController.js"></script>
+
+    <!-- users -->
+    <!-- now dependencies before users -->
+    <!-- details -->
+    <script src="components/details/details.js"></script>
+    <script src="components/details/DetailsController.js"></script>
+
+    <script src="components/users/users.js"></script>
+    <script src="components/users/UsersController.js"></script>
+    <script src="components/users/UsersService.js"></script>
+
+    <link rel="stylesheet" href="styles/style.css"/>
+</head>
+
+<body ng-controller="AppController as app">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
+                    <!--<span class="sr-only">Toggle navigation</span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                <!--</button>-->
+                <a class="navbar-brand" ng-link="home">Logo</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="HeaderController as header">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{ active: header.isActive('/home')}"><a ng-link="home()">Home</a></li>
+
+                    <li ng-class="{ active: header.isActive('/users')}"><a ng-link="users">Users (users)</a></li>
+                    <li ng-class="{ active: header.isActive('/users')}"><a ng-link="details({})">Users (details)</a></li>
+                    <li ng-class="{ active: header.isActive('/users')}"><a ng-link="details">Details</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div ng-viewport class="container-fluid slide"></div>
+
+</body>
+
+</html>
