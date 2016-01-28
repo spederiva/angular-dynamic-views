@@ -3,13 +3,36 @@
     "templateUrl": "components/welcome/welcome.html",
     "controller": "WelcomeController as welcome",
     "abstract": true,
-  },
-  "welcome.components": {
-    "url": "/welcome",
-    "views":[
-      "componentA",
-      "componentB"
+    "items": [
+      {
+        "layout": "vbox",
+        "cls": "myClass",
+        "items": [
+          {
+            "type": "componentA",
+            "flex": 1
+          },
+          {
+            "type": "componentB",
+            "flex": 2,
+            "model": "userSrv",
+            "subscribes": {
+              "componentA.buttonClick": "updateNow"
+            }
+          }
+        ]
+      },
+      {
+        "type": "componentC"
+      },
+      {
+        "type": "componentB",
+        "flex": 2,
+        "model": "instrumentSrv",
+        "subscribes": {
+          "componentA.buttonClick": "updateNow2"
+        }
+      }
     ]
   }
 }
-

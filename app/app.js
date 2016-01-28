@@ -2,7 +2,7 @@
 
 window.routeComponents = {};
 
-$.get('routing_new2.json')
+$.get('routing.json')
     .done(function (data) {
         window.routeComponents = data;
 
