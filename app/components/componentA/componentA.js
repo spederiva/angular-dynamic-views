@@ -13,4 +13,6 @@
 
     angular.module('example.componentA', []).controller("componentAController", ['$rootScope', 'pubsub', ctrl]);
 
+
+    return "example.componentA";
 }());
