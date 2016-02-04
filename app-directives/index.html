@@ -19,26 +19,8 @@
 
 <body ng-controller="AppController">
 <!--<nav class="navbar navbar-default navbar-fixed-top" role="navigation">-->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li><a ui-sref="welcome">welcome</a></li>
-            <li><a ui-sref="componentA()">welcome componentA</a></li>
-            <li><a ui-sref="flickr">flickr</a></li>
-            <!--<li><a ui-sref="settings">settings</a></li>-->
-            <li><a ui-sref="about">about</a></li>
-        </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-            <li class="loader" ng-if="router.isNavigating">
-                <i class="fa fa-spinner fa-spin fa-2x"></i>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<div class="page-host container-fluid slide" ui-view="">
-</div>
+<div ui-view=""></div>
 
 <script src="../bower_components/angular/angular.js"></script>
 <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -51,6 +33,7 @@
 <script src="core/pubsubSrv.js"></script>
 <script src="directives/componentButton/componentButton.js"></script>
 
+<script src="./components/header/bcHeader.js"></script>
 <script src="./components/flickr/flickr.js"></script>
 <script src="./components/settings/settings.js"></script>
 <script src="./components/welcome/welcome.js"></script>
@@ -58,6 +41,7 @@
 
 <script src="./components/componentA/componentA.js"></script>
 <script src="./components/componentB/componentB.js"></script>
+<script src="./components/componentB/componentB-Ctrl.js"></script>
 <script src="./components/componentC/componentC.js"></script>
 
 </body>

@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="welcome">welcome</a></li>
+            <li><a ui-sref="componentA()">welcome componentA</a></li>
+            <li><a ui-sref="flickr">flickr</a></li>
+            <!--<li><a ui-sref="settings">settings</a></li>-->
+            <li><a ui-sref="about">about</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="loader" ng-if="router.isNavigating">
+                <i class="fa fa-spinner fa-spin fa-2x"></i>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,25 +1,16 @@
-<section class="container">
-    <h2>welcome: {{welcome.heading}}</h2>
+<bcheader></bcheader>
 
-    <!--<div ui-view="componentA"></div>-->
-    <!--<div ui-view="componentB"></div>-->
+<button ng-click="welcome.doSomething()">Click Me!</button>
 
-    <!--<dynamic-Components components="welcome"></dynamic-Components>-->
+<section class="page-host container-fluid slide">
+    <div class="container">
+        <h2>welcome: {{welcome.heading}}</h2>
 
-    <dynamic-components components="welcome.components"></dynamic-components>
+        <!--<div ui-view="componentA"></div>-->
+        <!--<div ui-view="componentB"></div>-->
 
-    <!--<div class="welcome row">-->
-        <!--<div class="row">-->
-            <!--<div ui-view="componentA" class="col-md-1"></div>-->
-            <!--<div ui-view="componentB" class="col-md-1"></div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="col-md-1" ui-view="componentC" class="ng-scope"></div>-->
-        <!--</div>-->
-    <!--</div>-->
+        <dynamic-components components="welcome"></dynamic-components>
 
-    <!--<div ng-repeat="comp in welcome.components">-->
-        <!--<div>{{comp.layout}}</div>-->
-        <!--<div>{{comp.type}}</div>-->
-    <!--</div>-->
+        <!--<dynamic-components></dynamic-components>-->
+    </div>
 </section>

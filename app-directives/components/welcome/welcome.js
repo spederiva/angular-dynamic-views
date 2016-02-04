@@ -1,15 +1,16 @@
 (function () {
-    var Controller = function WelcomeController( componentConfiguration,$timeout) {
+    var Controller = function WelcomeController(componentConfiguration, $timeout) {
         var self = this;
 
         this.heading = 'Welcome to The New Angular Router Demo!';
 
-        this.components = componentConfiguration.components.welcome.items;
-
-        $timeout(function(){
-            self.components.push({"type": "componentC"})
+        $timeout(function () {
+            componentConfiguration.components.welcome.items.push({"type": "componentC"})
         }, 3000);
     };
+    Controller.prototype.doSomething = function () {
+        alert(222);
+    }
 
     //Controller.$routeConfig = [
     //    {
@@ -39,5 +40,5 @@
     //};
 
     angular.module('example.welcome', []).controller('WelcomeController',
-        ['componentConfiguration','$timeout',Controller]);
+        ['componentConfiguration', '$timeout', Controller]);
 }());

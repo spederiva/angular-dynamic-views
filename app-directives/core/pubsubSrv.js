@@ -20,4 +20,16 @@ angular.module('myApp').service('pubsub', function() {
 
         }
     };
+
+    this.subscribeEvents = function(instance, subscribes){
+        var subs = JSON.parse(subscribes);
+
+        for (var sub in subs) {
+            if (typeof instance[subs[sub]] === 'function') {
+                instance.pubsub.subscribe(sub, -1, instance[subs[sub]].bind(instance));
+            }
+        }
+
+        console.log('Events subscribed for ComponentB');
+    }
 });
