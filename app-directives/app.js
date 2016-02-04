@@ -13,6 +13,7 @@ $.get('routing.json')
 
 var myAppModuleDependencies = [
     'ui.router',
+    'ui.grid',
 
     'app.directives.componentButton',
 
@@ -23,8 +24,9 @@ var myAppModuleDependencies = [
 
     'example.componentA',
     'example.componentB',
-    'example.componentC'
+    'example.componentC',
 
+    'example.users'
 ]
 
 angular.module('myApp', myAppModuleDependencies)

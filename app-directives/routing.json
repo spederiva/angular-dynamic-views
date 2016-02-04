@@ -4,6 +4,10 @@
     "controller": "WelcomeController as welcome",
     "items": [
       {
+        "type": "users"
+      },
+
+      {
         "layout": "vbox",
         "cls": "myClass",
         "items": [
