@@ -8,7 +8,8 @@
 
         //console.log($scope.$parent.viewData);
         //console.log("xxxxx", $scope.$parent.viewSubscriptions);
-        console.log($scope.subscribes)
+        //console.log($scope.subscribes)
+        console.log('componentB');
 
         this._constructor_();
     };
