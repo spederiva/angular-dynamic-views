@@ -1,6 +1,8 @@
 (function () {
-    var Controller = function WelcomeController(componentConfiguration, $timeout) {
+    var Controller = function WelcomeController(componentConfiguration, $timeout, $state) {
         var self = this;
+
+        this.componentToRender = $state.current.name;
 
         this.heading = 'Welcome to The New Angular Router Demo!';
 
@@ -40,5 +42,5 @@
     //};
 
     angular.module('example.welcome', []).controller('WelcomeController',
-        ['componentConfiguration', '$timeout', Controller]);
+        ['componentConfiguration', '$timeout', '$state', Controller]);
 }());

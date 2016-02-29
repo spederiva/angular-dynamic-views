@@ -76,7 +76,7 @@ angular.module('myApp', myAppModuleDependencies)
     }])
 
     .config(function ($httpProvider) {
-        $httpProvider.interceptors.push('myInterceptor');
+        //$httpProvider.interceptors.push('myInterceptor');
     })
 
     .factory('myInterceptor', [function () {

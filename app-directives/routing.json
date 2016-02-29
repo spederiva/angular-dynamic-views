@@ -3,9 +3,6 @@
     "templateUrl": "components/welcome/welcome.html",
     "controller": "WelcomeController as welcome",
     "items": [
-      {
-        "type": "users"
-      },
 
       {
         "layout": "vbox",
