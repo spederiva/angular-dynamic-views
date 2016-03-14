@@ -14,11 +14,6 @@ angular.module('myApp')
             }
 
             var evt = $scope.$on(eventName, handler);
-
-            $scope.$on('$destroy', function(){
-                console.log("$destroyed");
-            })
-
         };
 
         // publish data changed notification

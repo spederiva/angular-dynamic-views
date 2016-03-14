@@ -3,29 +3,35 @@
  */
 
 (function () {
-    var ctrl = function ($rootScope, pubsub, $log) {
-        this.rootScope = $rootScope;
-        this.pubsub = pubsub;
+    class Ctrl extends BaseCtrl {
+        constructor($scope, pubsub, $log) {
+            super($scope, pubsub);
 
-        $log.log('newComponent');
+            //this.rootScope = $rootScope;
+            //this.pubsub = pubsub;
 
-        this.now = new Date();
+            $log.log('newComponent');
 
-    };
+            this.now = new Date();
+        }
 
-    ctrl.prototype.buttonClick = function () {
-        //this.pubsub.publish('componentA.buttonClick', 1, {now: new Date()});
-        //this.pubsub.publish('componentA.buttonClick', null, {now: new Date()});
+        buttonClick() {
+            //this.pubsub.publish('componentA.buttonClick', 1, {now: new Date()});
+            //this.pubsub.publish('componentA.buttonClick', null, {now: new Date()});
 
-        this.now = new Date();
-    };
+            this.now = new Date();
+
+            console.log(this.pubsub);
+        }
+    }
 
     angular.module('example.newComponent', [])
-        .controller("newComponentController", ['$rootScope', 'pubsub', '$log', ctrl])
+        .controller("newComponentController", ['$scope', 'pubsub', '$log', Ctrl])
         .component('newcomponent', {
                 templateUrl: 'components/newcomponent/newcomponent.html',
                 controller: 'newComponentController',
                 bindings: {
+                    subscribes: '@',
                     hero: '='
                 }
             }
