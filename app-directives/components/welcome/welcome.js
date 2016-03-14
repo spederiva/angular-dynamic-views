@@ -1,5 +1,5 @@
 (function () {
-    var Controller = function WelcomeController(componentConfiguration, $timeout, $state) {
+    var Controller = function WelcomeController(componentConfiguration, $timeout, $state, pubsub) {
         var self = this;
 
         this.componentToRender = $state.current.name;
@@ -8,7 +8,10 @@
 
         $timeout(function () {
             componentConfiguration.components.welcome.items.push({"type": "componentC"})
-        }, 3000);
+
+            pubsub.publish('changeJSON');
+
+        }, 1000);
     };
     Controller.prototype.doSomething = function () {
         alert(222);
@@ -42,5 +45,5 @@
     //};
 
     angular.module('example.welcome', []).controller('WelcomeController',
-        ['componentConfiguration', '$timeout', '$state', Controller]);
+        ['componentConfiguration', '$timeout', '$state', 'pubsub', Controller]);
 }());

@@ -1,7 +1,7 @@
 (function () {
     angular.module('myApp')
-        .directive("dynamicComponents", function ($compile, componentConfiguration) {
-            var components = {};
+        .directive("dynamicComponents", function ($compile, componentConfiguration, pubsub) {
+            var compiledComponents = {};
 
             return {
                 scope: {
@@ -27,14 +27,19 @@
 
                                 elements.push("<div class='row'>");
                                 if (componentItem.type) {
-                                    if (!components[componentInstance]) {
+                                    if (!compiledComponents[componentInstance]) {
                                         var directiveHtml = '<' + componentItem.type + ' subscribes="{{subscribes.' + componentInstance + '}}"></' + componentItem.type + '>';
-                                        components[componentInstance] = $compile(directiveHtml)(scope);
+                                        compiledComponents[componentInstance] = $compile(directiveHtml)(scope);
 
                                         componentItem.componentUniqueId = componentInstance;
                                     }
+                                    //else{
+                                    //    console.log(compiledComponents[componentInstance]);
+                                    //
+                                    //    //compiledComponents[componentInstance] = "<div>xxxx</div>";
+                                    //}
 
-                                    elements.push(components[componentInstance]);
+                                    elements.push(compiledComponents[componentInstance]);
                                 } else if (componentItem.items) {
                                     elements.push('<div class="col-md-1 ' + componentItem.layout + '">');
                                     makeElementsHtml(componentItem.items);
@@ -47,24 +52,28 @@
                         makeElementsHtml(scopeComponents, elements);
 
                         //var components = $compile(elements.join(''))(scope);
-                        console.log(components);
+                        console.log(compiledComponents);
                         console.log(elements);
 
                         elem.html(elements);
                     }
 
-                    var components = componentConfiguration.components[scope.components] && componentConfiguration.components[scope.components].items;
+                    //scope.$watch(
+                    //    function () {
+                    //        return componentConfiguration.components[scope.components] && componentConfiguration.components[scope.components].items;
+                    //    },
+                    //    function (newValue, oldValue) {
+                    //        console.log("Rendering Tiles", newValue, oldValue);
+                    //
+                    //        renderComponents(newValue);
+                    //    },
+                    //    true);
 
-                    scope.$watch(
-                        function () {
-                            return components;
-                        },
-                        function (newValue) {
-                            console.log("Rendering Tiles", newValue);
+                    pubsub.subscribe("changeJSON", null, function(){
+                        renderComponents(componentConfiguration.components[scope.components] && componentConfiguration.components[scope.components].items);
+                    });
 
-                            renderComponents(components);
-                        },
-                        true);
+                    renderComponents(componentConfiguration.components[scope.components] && componentConfiguration.components[scope.components].items);
                 }
             }
         })

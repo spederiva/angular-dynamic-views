@@ -20,8 +20,21 @@
             }
           }
         ]
+      },
+      {
+        "type": "componentC"
+      },
+      {
+        "type": "newComponent"
+      },
+      {
+        "type": "componentB",
+        "flex": 2,
+        "model": "instrumentSrv",
+        "subscribes": {
+          "componentA.buttonClick": "updateNow2"
+        }
       }
-
     ]
   }
 }

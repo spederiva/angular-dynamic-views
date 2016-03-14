@@ -13,6 +13,8 @@ angular.module('myApp').service('pubsub', function() {
             return subscriber.eventName === eventName;
         });
 
+        console.log("publish", eventName, data, filteredSubscribers);
+
         if(filteredSubscribers.length > 0) {
             filteredSubscribers.forEach(function(subs){
                 subs.callback(data);

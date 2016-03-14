@@ -25,6 +25,7 @@ var myAppModuleDependencies = [
     'example.componentA',
     'example.componentB',
     'example.componentC',
+    'example.newComponent',
 
     'example.users'
 ]
@@ -35,6 +36,13 @@ angular.module('myApp', myAppModuleDependencies)
         $urlRouterProvider.otherwise("/welcome");
 
         componentConfigurationProvider.makeRouting();
+
+        $stateProvider
+            .state('about', {
+                url: "/about",
+                templateUrl: "components/about/about.html",
+                //controller: 'WelcomeController as welcome'
+            })
 
         // Now set up the states
         //$stateProvider
