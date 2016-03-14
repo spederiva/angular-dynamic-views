@@ -31,11 +31,11 @@
         this.pubsub.subscribeEvents(this, this.$scope.subscribes, this.$scope);
     }
 
-    Controller.prototype.updateNow = function (obj) {
+    Controller.prototype.updateNow = function (obj,a,b,c) {
         var self = this;
 
         this.$scope.$applyAsync(function () {
-            self.now = new Date();
+            self.now = obj.date
             self.bgcolor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
 
             console.log('componentA.buttonClick');

@@ -18,7 +18,7 @@ angular.module('myApp')
 
         // publish data changed notification
         var publish = function (eventName) {
-            $rootScope.$broadcast(eventName);
+            $rootScope.$broadcast.apply($rootScope, arguments);
         };
 
         // publish data changed notification
