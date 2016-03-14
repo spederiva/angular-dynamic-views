@@ -40,7 +40,7 @@
             //    eventObjFunc();
             //
             //});
-            this.pubsub.subscribe('componentA.buttonClick', -1, eventObjFunc.bind(self));
+            this.pubsub.subscribe('componentA.buttonClick', -1, eventObjFunc.bind(self), this.$scope);
         }
 
         console.log('Events subscribed for ComponentB');

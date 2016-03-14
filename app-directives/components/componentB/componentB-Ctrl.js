@@ -28,14 +28,14 @@
     };
 
     Controller.prototype.registerEvents = function (rootScope) {
-        this.pubsub.subscribeEvents(this, this.$scope.subscribes);
+        this.pubsub.subscribeEvents(this, this.$scope.subscribes, this.$scope);
     }
 
     Controller.prototype.updateNow = function (obj) {
         var self = this;
 
         this.$scope.$applyAsync(function () {
-            self.now = obj.now;
+            self.now = new Date();
             self.bgcolor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
 
             console.log('componentA.buttonClick');

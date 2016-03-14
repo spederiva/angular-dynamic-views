@@ -69,7 +69,7 @@
                     //    },
                     //    true);
 
-                    pubsub.subscribe("changeJSON", null, function(){
+                    pubsub.subscribe("changeJSON", function(){
                         renderComponents(componentConfiguration.components[scope.components] && componentConfiguration.components[scope.components].items);
                     });
 

@@ -1,17 +1,25 @@
 (function () {
-    var Controller = function WelcomeController(componentConfiguration, $timeout, $state, pubsub) {
+    var Controller = function WelcomeController(componentConfiguration, $timeout, $state, pubsub, $scope) {
         var self = this;
 
         this.componentToRender = $state.current.name;
 
         this.heading = 'Welcome to The New Angular Router Demo!';
 
-        $timeout(function () {
-            componentConfiguration.components.welcome.items.push({"type": "componentC"})
+        //$timeout(function () {
+        //    componentConfiguration.components.welcome.items.push({"type": "componentC"})
+        //
+        //    pubsub.publish('changeJSON');
+        //
+        //}, 1000);
 
-            pubsub.publish('changeJSON');
+        pubsub.subscribe("componentA.dosomething", function(){
+            console.log('%csetInterval', 'background-color:red', $scope.$id);
+        }, $scope);
 
-        }, 1000);
+        $scope.$on("componentA.dosomething", function(){
+            console.log('%csetInterval $on', 'background-color:violet', $scope.$id);
+        });
     };
     Controller.prototype.doSomething = function () {
         alert(222);
@@ -45,5 +53,5 @@
     //};
 
     angular.module('example.welcome', []).controller('WelcomeController',
-        ['componentConfiguration', '$timeout', '$state', 'pubsub', Controller]);
+        ['componentConfiguration', '$timeout', '$state', 'pubsub', '$scope', Controller]);
 }());

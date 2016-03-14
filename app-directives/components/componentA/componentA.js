@@ -23,6 +23,11 @@
         //this.pubsub.publish('componentA.buttonClick', 1, {now: new Date()});
         this.pubsub.publish('componentA.buttonClick', null, {now: new Date()});
 
+        setInterval(function(){
+            this.pubsub.publish('componentA.dosomething');
+
+            console.log('%csetInterval', 'background-color:yellow');
+        }.bind(this), 1000);
 
     };
 
