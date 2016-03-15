@@ -28,7 +28,7 @@
     };
 
     Controller.prototype.registerEvents = function (rootScope) {
-        this.pubsub.subscribeEvents(this, this.$scope.subscribes, this.$scope);
+        this.pubsub.subscribeEvents(this, this.$scope.subscribes(), this.$scope);
     }
 
     Controller.prototype.updateNow = function (obj,a,b,c) {

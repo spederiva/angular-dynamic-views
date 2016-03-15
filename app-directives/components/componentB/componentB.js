@@ -4,7 +4,7 @@
         .directive('componentb', function () {
             return {
                 scope: {
-                    subscribes: '@'
+                    subscribes: '&'
                 },
                 templateUrl: 'components/componentB/componentB.html',
                 controller: 'componentBController',

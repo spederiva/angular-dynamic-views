@@ -123,11 +123,13 @@ angular.module('myApp', myAppModuleDependencies)
 
         this.makeRouting = function () {
             angular.forEach(routeComponents, function (item, prop) {
-                $stateProvider.state(prop, {
-                    url: "/" + prop,
-                    templateUrl: item.templateUrl,
-                    controller: item.controller
-                });
+                if(item.templateUrl && item.controller) {
+                    $stateProvider.state(prop, {
+                        url: "/" + prop,
+                        templateUrl: item.templateUrl,
+                        controller: item.controller
+                    });
+                }
             });
         };
 

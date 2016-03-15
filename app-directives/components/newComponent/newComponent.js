@@ -23,6 +23,10 @@
 
             console.log(this.pubsub);
         }
+
+        updateNow(evt, nothing, newdate){
+            this.now = newdate.now;
+        }
     }
 
     angular.module('example.newComponent', [])
@@ -31,7 +35,7 @@
                 templateUrl: 'components/newcomponent/newcomponent.html',
                 controller: 'newComponentController',
                 bindings: {
-                    subscribes: '@',
+                    subscribes: '&',
                     hero: '='
                 }
             }

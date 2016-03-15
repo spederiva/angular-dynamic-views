@@ -13,13 +13,20 @@
         //
         //}, 1000);
 
-        pubsub.subscribe("componentA.dosomething", function(){
-            console.log('%csetInterval', 'background-color:red', $scope.$id);
-        }, $scope);
+        //$timeout(function () {
+        //    componentConfiguration.components.welcome.items[1].items.push({"type": "componentC", "id":"555"})
+        //
+        //    pubsub.publish('changeJSON', componentConfiguration.components.welcome.items[1]);
+        //
+        //}, 1000);
 
-        $scope.$on("componentA.dosomething", function(){
-            console.log('%csetInterval $on', 'background-color:violet', $scope.$id);
-        });
+        //pubsub.subscribe("componentA.dosomething", function(){
+        //    console.log('%csetInterval', 'background-color:red', $scope.$id);
+        //}, $scope);
+        //
+        //$scope.$on("componentA.dosomething", function(){
+        //    console.log('%csetInterval $on', 'background-color:violet', $scope.$id);
+        //});
     };
     Controller.prototype.doSomething = function () {
         alert(222);

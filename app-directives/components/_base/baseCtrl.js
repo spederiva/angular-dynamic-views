@@ -7,7 +7,9 @@
         subscribeAllComponentEvents = function ($scope, pubsub) {
             //The instance (this) is not initialized only after the constructor is finished, so timeout was added
             setTimeout(function () {
-                pubsub.subscribeEvents(this, this.subscribes, $scope);
+                if(typeof this.subscribes === "function") {
+                    pubsub.subscribeEvents(this, this.subscribes(), $scope);
+                }
             }.bind(this), 0);
         }
 
@@ -22,6 +24,8 @@
             }
 
             this.pubsub = pubsub;
+
+
 
             subscribeAllComponentEvents.call(this, $scope, pubsub);
         }

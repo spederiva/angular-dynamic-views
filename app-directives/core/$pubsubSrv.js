@@ -28,15 +28,16 @@ angular.module('myApp')
                 throw ("No $scope is defined!...");
             }
 
-            subs = JSON.parse(subscribes);
-
-            for (var sub in subs) {
-                if (typeof instance[subs[sub]] === 'function') {
-                    subscribe(sub, instance[subs[sub]].bind(instance), $scope);
+            if (typeof subscribes === "object") {
+                for (var sub in subscribes) {
+                    if (typeof instance[subscribes[sub]] === 'function') {
+                        subscribe(sub, instance[subscribes[sub]].bind(instance), $scope);
+                    }
                 }
-            }
 
-            console.log('Events subscribed', subscribes);
+                console.log('Events subscribed', subscribes);
+
+            }
         }
 
 

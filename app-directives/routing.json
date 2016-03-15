@@ -1,5 +1,7 @@
 {
   "welcome": {
+    "id": "1",
+
     "templateUrl": "components/welcome/welcome.html",
     "controller": "WelcomeController as welcome",
     "items": [
@@ -8,10 +10,12 @@
         "cls": "myClass",
         "items": [
           {
+            "id": "111",
             "type": "componentA",
             "flex": 1
           },
           {
+            "id": "222",
             "type": "componentB",
             "flex": 2,
             "model": "userSrv",
@@ -22,10 +26,18 @@
         ]
       },
       {
+        "id": "33",
         "type": "newComponent",
         "subscribes": {
           "componentA.buttonClick": "updateNow"
-        }
+        },
+        "items": [
+          {
+            "id": "444",
+            "type": "componentC",
+            "flex": 1
+          }
+        ]
       }
     ]
   }
