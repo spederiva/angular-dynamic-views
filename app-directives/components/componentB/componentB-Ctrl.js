@@ -31,17 +31,22 @@
         this.pubsub.subscribeEvents(this, this.$scope.subscribes(), this.$scope);
     }
 
-    Controller.prototype.updateNow = function (obj,a,b,c) {
+    Controller.prototype.updateNow = function (evt, stam, obj) {
         var self = this;
 
         this.$scope.$applyAsync(function () {
-            self.now = obj.date
+            self.now = obj.now;
             self.bgcolor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
 
             console.log('componentA.buttonClick');
         });
 
     };
+
+    Controller.prototype.updateNowNewComponent = function (evt, data) {
+        alert(data);
+        console.log(data);
+    }
 
     Controller.prototype.updateNow2 = function (obj) {
         var self = this;

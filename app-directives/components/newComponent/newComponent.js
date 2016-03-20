@@ -12,11 +12,13 @@
 
             $log.log('newComponent');
 
+            $scope.xxx = "sss";
+
             this.now = new Date();
         }
 
         buttonClick() {
-            //this.pubsub.publish('componentA.buttonClick', 1, {now: new Date()});
+            this.pubsub.publish('newComponent.buttonClick', 1, {now: new Date()});
             //this.pubsub.publish('componentA.buttonClick', null, {now: new Date()});
 
             this.now = new Date();

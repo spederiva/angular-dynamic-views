@@ -6,19 +6,12 @@
 
         this.heading = 'Welcome to The New Angular Router Demo!';
 
-        //$timeout(function () {
-        //    componentConfiguration.components.welcome.items.push({"type": "componentC"})
-        //
-        //    pubsub.publish('changeJSON');
-        //
-        //}, 1000);
+        $timeout(function () {
+            componentConfiguration.components.welcome.items.push({"type": "componentC", "id":"555"})
 
-        //$timeout(function () {
-        //    componentConfiguration.components.welcome.items[1].items.push({"type": "componentC", "id":"555"})
-        //
-        //    pubsub.publish('changeJSON', componentConfiguration.components.welcome.items[1]);
-        //
-        //}, 1000);
+            pubsub.publish('changeJSON', componentConfiguration.components.welcome);
+
+        }, 1000);
 
         //pubsub.subscribe("componentA.dosomething", function(){
         //    console.log('%csetInterval', 'background-color:red', $scope.$id);

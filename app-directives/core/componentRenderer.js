@@ -9,15 +9,10 @@
                 compiledComponents = {},
 
                 componentRenderer = function (scope, componentItem) {
-                    var directiveHtml;
-
-                    if (!componentItem.componentUniqueId) {
-                        var random = Math.round(Math.random() * 10000000),
-                            componentInstance = componentItem.type + random.toString();
-                    } else {
-                        componentInstance = componentItem.componentUniqueId;
-                    }
-
+                    var
+                        directiveHtml = "",
+                        id = componentItem.id || Math.round(Math.random() * 10000000),
+                        componentInstance = componentItem.type + id.toString();
 
                     if (!compiledComponents[componentInstance]) {
 
@@ -26,7 +21,7 @@
                             ' nodeid="' + componentItem.id + '">' +
                             '</' + componentItem.type + '>';
 
-                        compiledComponents[componentInstance] = $compile(directiveHtml)(scope);
+                        compiledComponents[componentInstance] = $compile(directiveHtml)(scope.$new());
 
                         componentItem.componentUniqueId = componentInstance;
                     }

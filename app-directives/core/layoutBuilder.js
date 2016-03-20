@@ -26,19 +26,13 @@
                 });
             },
 
-            layoutBuilder = function (scope, elem, scopeComponents) {
+            layoutBuilder = function (scope, scopeComponents) {
                 if (scopeComponents.items) {
                     var elements = [];
 
                     makeElementsHtml(scope, scopeComponents.items, elements);
 
                     $log.log("Elements", elements);
-
-                    //Add nodeId to identify the component
-                    elem.attr("nodeId", scopeComponents.id);
-
-                    //Add to the DOM
-                    elem.html(elements);
 
                     return elements;
                 }

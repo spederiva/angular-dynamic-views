@@ -15,6 +15,8 @@
         //    console.log('%csetInterval', 'background-color:yellow');
         //}, 200)
 
+
+
     };
 
     ctrl.prototype.buttonClick = function () {
@@ -40,7 +42,4 @@
                 controllerAs: 'componenta'
             }
         });
-
-
-    return "example.componentA";
 }());

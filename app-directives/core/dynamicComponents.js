@@ -25,6 +25,15 @@
 
         angular.module('myApp')
             .directive("dynamicComponents", function ($compile, componentConfiguration, pubsub, layoutBuilder) {
+                var addLayoutToDom = function (scope, elem, items) {
+                    var jqElem = layoutBuilder(scope, items);
+
+                    //Add nodeId to identify the component
+                    elem.attr("nodeId", items.id);
+
+                    //Add to the DOM
+                    elem.append(jqElem);
+                }
 
                 return {
                     scope: {
@@ -32,20 +41,20 @@
                     },
                     link: function (scope, elem, attr) {
                         scope.subscribes = {};
-                        
+
                         pubsub.subscribe("changeJSON", function (evt, changedJson) {
                             if (elem.attr("nodeId") === changedJson.id) {
-                                layoutBuilder(scope, elem, changedJson);
+                                addLayoutToDom(scope, elem, changedJson);
                             }
                         });
 
                         if (componentConfiguration.components[scope.components])
-                            layoutBuilder(scope, elem, componentConfiguration.components[scope.components]);
+                            addLayoutToDom(scope, elem, componentConfiguration.components[scope.components]);
                         else {
                             //var items = findNode(elem.parents("[nodeid]").attr("nodeid"), componentConfiguration.components);
                             var items = componentConfiguration.components["welcome"].items[1];
 
-                            layoutBuilder(scope, elem, items);
+                            addLayoutToDom(scope, elem, items);
                         }
                     }
                 }
